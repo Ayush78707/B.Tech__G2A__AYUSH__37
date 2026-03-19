@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    long long n; // Use long long to handle larger numbers
+    int count = 0;
+
+    printf("Enter an integer: ");
+    // Use %lld to read a long long integer
+    scanf("%lld", &n);
+
+    // Handle the specific case for input 0
+    if (n == 0) {
+        count = 1;
+    } else {
+        // Use a do-while loop to ensure the code block runs at least once
+        // (needed if the input number is 0, but the if statement above handles this better)
+        // A standard while loop works fine for non-zero numbers
+        long long temp_n = n; // Work with a temporary variable to preserve the original input for printing
+
+        while (temp_n != 0) {
+            // Remove the last digit of the number
+            temp_n /= 10;
+            // Increment the count for each digit removed
+            ++count;
+        }
+    }
+
+    printf("Number of digits: %d\n", count);
+
+    return 0;
+}
